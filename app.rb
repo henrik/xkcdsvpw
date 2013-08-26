@@ -70,6 +70,6 @@ helpers do
   end
 
   def lines
-    @lines ||= = File.read("words.txt").lines.to_a
+    @lines ||= File.read("words.txt").lines.to_a
   end
 end
