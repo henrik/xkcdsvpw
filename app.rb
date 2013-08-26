@@ -46,14 +46,27 @@ get "/" do
         <p>Svenskt XKCD-lösenord (lösenfras) / Swedish XKCD password (passphrase).</p>
         <p>Av <a href="http://henrik.nyh.se">Henrik Nyh</a>.</p>
         <p>Inspirerat av <a href="http://xkcd.com/936/">XKCD 936</a> och <a href="http://preshing.com/20110811/xkcd-password-generator">en engelsk generator</a>.</p>
+        <p>#{format count} vanliga ord ^ 4 positioner = #{format count**4} möjligheter.</p>
       </footer>
     </body>
   }
 end
 
 helpers do
+  def format(number)
+    number.to_s.reverse.gsub(/.{3}/, '\0 ').reverse
+  end
+
   def words(count = 4)
+    lines.sample(count).map(&:strip)
+  end
+
+  def count
+    lines.length
+  end
+
+  def lines
     file = File.read("words.txt")
-    file.lines.to_a.sample(count).map(&:strip)
+    @lines ||= file.lines.to_a
   end
 end
