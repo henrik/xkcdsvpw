@@ -7,7 +7,7 @@ Bundler.require :default, (ENV['RACK_ENV'] || "development").to_sym
 get "/" do
   %{
     <head>
-      <title>Svenskt XKCD-lösenord (lösenfras)</title>
+      <title>Svenskt XKCD-lösenord</title>
       <style>
         body {
           text-align: center;
@@ -17,6 +17,10 @@ get "/" do
 
         p, button {
           font-size: 16px;
+        }
+
+        button {
+          padding: 8px;
         }
 
         .suggestion {
@@ -34,11 +38,12 @@ get "/" do
       <h1>Ditt nya lösenord:</h1>
       <p class="suggestion">#{words(4).join(" ")}</p>
       <form>
-        <button>Ge mig en ny!</button>
+        <button>Ge mig ett till!</button>
       </form>
       <p>(Eller ladda om sidan.)</p>
 
       <footer>
+        <p>Svenskt XKCD-lösenord (lösenfras) / Swedish XKCD password (passphrase).</p>
         <p>Av <a href="http://henrik.nyh.se">Henrik Nyh</a>.</p>
         <p>Inspirerat av <a href="http://xkcd.com/936/">XKCD 936</a> och <a href="http://preshing.com/20110811/xkcd-password-generator">en engelsk generator</a>.</p>
       </footer>
