@@ -36,7 +36,7 @@ get "/" do
     </head>
     <body>
       <h1>Ditt nya lösenord:</h1>
-      <p class="suggestion">#{words(4).join(" ")}</p>
+      <p class="suggestion">#{words(positions).join(" ")}</p>
       <form>
         <button>Ge mig ett till!</button>
       </form>
@@ -46,18 +46,22 @@ get "/" do
         <p>Svenskt XKCD-lösenord (lösenfras) / Swedish XKCD password (passphrase).</p>
         <p>Av <a href="http://henrik.nyh.se">Henrik Nyh</a>. <a href="http://github.com/henrik/xkcdsvpw">Visa källkod.</a></p>
         <p>Inspirerat av <a href="http://xkcd.com/936/">XKCD 936</a> och <a href="http://preshing.com/20110811/xkcd-password-generator">en engelsk generator</a>.</p>
-        <p>#{format count} vanliga ord ^ 4 positioner = #{format count**4} möjligheter.</p>
+        <p>#{format count} vanliga ord ^ #{positions} positioner = #{format count**positions} möjligheter.</p>
       </footer>
     </body>
   }
 end
 
 helpers do
+  def positions
+    4
+  end
+
   def format(number)
     number.to_s.reverse.gsub(/.{3}/, '\0 ').reverse
   end
 
-  def words(count = 4)
+  def words(count)
     lines.sample(count).map(&:strip)
   end
 
