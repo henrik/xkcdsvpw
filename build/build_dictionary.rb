@@ -1,6 +1,10 @@
 # Builds a dictionary of common words that should be easy to remember.
 # We don't need many: http://preshing.com/20110811/xkcd-password-generator
 # suggests the original XKCD comic makes do with a 2048 word dictionary.
+#
+# We use two word lists. One is inflected and not as nice, but is sorted
+# by frequency (in a corpus), so we can use it to figure out common words,
+# even though we'll pick them from the other, cleaner list.
 
 require "set"
 require "open-uri"
