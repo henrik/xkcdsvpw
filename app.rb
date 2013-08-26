@@ -12,16 +12,36 @@ get "/" do
         body {
           text-align: center;
           padding: 20px;
+          font-family: "Helvetica Neue", Helvetica, sans-serif;
         }
+
+        p, button {
+          font-size: 16px;
+        }
+
         .suggestion {
           font-family: monospace;
-          font-size: 25px;
+          font-size: 30px;
+        }
+
+        footer {
+          margin-top: 50px;
+          font-size: 10px;
         }
       </style>
     </head>
     <body>
       <h1>Ditt nya lösenord:</h1>
       <p class="suggestion">#{words(4).join(" ")}</p>
+      <form>
+        <button>Ge mig en ny!</button>
+      </form>
+      <p>(Eller ladda om sidan.)</p>
+
+      <footer>
+        <p>Av <a href="http://henrik.nyh.se">Henrik Nyh</a>.</p>
+        <p>Inspirerat av <a href="http://xkcd.com/936/">XKCD 936</a> och <a href="http://preshing.com/20110811/xkcd-password-generator">en engelsk generator</a>.</p>
+      </footer>
     </body>
   }
 end
