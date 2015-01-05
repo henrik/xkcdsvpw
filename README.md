@@ -1,6 +1,6 @@
 # Swedish XKCD password generator
 
-See <http://xkcdsvpw.herokuapp.com>.
+See <http://pw.nyh.name>.
 
 Yes, the dictionary is included in this repo. The relative security is in the combinatorics; you could make a pretty good guess at a "most common Swedish words" dictionary even without this.
 
